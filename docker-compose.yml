@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  
+  solution:
+    build:
+      context: ./my_app
+    ports:
+      - 5000:5000
+    container_name: solution
+
+
+  checker:
+    image: mike0sv/sf_docker_check
+    container_name: checker
+    depends_on: 
+      - solution
+
+
